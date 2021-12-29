@@ -1,0 +1,17 @@
+name: Actions workflow
+
+on: [push]
+
+jobs:
+  action-based-flow:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: simple javascript action
+        id: greet
+        uses: actions/hello-world-javascript-action@v1.1
+        with:
+          who-to-greet: Raghu
+      - name: Consume action output
+        run: |
+          echo "{{ steps.greet.outputs.time }}"
+      
