@@ -13,5 +13,5 @@ jobs:
           who-to-greet: Raghu
       - name: Consume action output
         run: |
-          echo "{{ steps.greet.outputs.time }}"
+          echo "${{ steps.greet.outputs.time }}"
       
