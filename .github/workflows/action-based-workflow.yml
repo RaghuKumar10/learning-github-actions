@@ -6,11 +6,27 @@ jobs:
   action-based-flow:
     runs-on: ubuntu-latest
     steps: 
+      - name: Checkout current repo
+        uses: actions/checkout@v2.4.0
+      
+      - name: list files in current Directory
+        run: |
+          pwd
+          ls -a
+      
+      - name: Github envs 
+        run: |
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{ github.token }}"
+
       - name: simple javascript action
         id: greet
         uses: actions/hello-world-javascript-action@v1.1
         with:
           who-to-greet: Raghu
+      
       - name: Consume action output
         run: |
           echo "${{ steps.greet.outputs.time }}"
