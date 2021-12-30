@@ -1,6 +1,11 @@
 name: Actions workflow
 
-on: [push]
+#on: [push, pull_request]
+on:
+  push:
+  pull_request:
+    types: [opened, reopened, assigned]
+  workflow_dispatch:
 
 jobs:
   action-based-flow:
