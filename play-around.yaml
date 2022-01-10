@@ -1,0 +1,20 @@
+name: raghu
+address:
+    street1: 1801
+    street2: 24th cross, suvarna main road
+    area: roopa
+    city: mysore
+    state: karnataka
+description: >
+   dfdf
+   dfdfdfd
+   erererer
+otherdescription: |
+    dsds
+    sdsd
+    sdsdsd
+    sdsdsd
+previousLocations:
+  - mysore
+  - bangalore
+  - chamarajnamgar  

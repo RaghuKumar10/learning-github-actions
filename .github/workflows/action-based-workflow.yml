@@ -2,10 +2,14 @@ name: Actions workflow
 
 #on: [push, pull_request]
 on:
+  # schedule:
+  #   - cron: "0 12-15 * * *"
+  #   - cron: "0/15 12,13 * * *"
   push:
   pull_request:
-    types: [opened, reopened, assigned]
+    types: [opened, reopened, assigned, closed]
   workflow_dispatch:
+  repository_dispatch:
 
 jobs:
   action-based-flow:
@@ -35,4 +39,8 @@ jobs:
       - name: Consume action output
         run: |
           echo "${{ steps.greet.outputs.time }}"
+
+      - name: "payload received from repository dispatach api"
+        run: |
+          echo "${{ github.event.client_payload.env }}"
       
