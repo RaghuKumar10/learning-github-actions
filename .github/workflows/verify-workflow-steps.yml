@@ -1,0 +1,22 @@
+name: Verify content from step to step
+on:
+  push:
+    branches:
+      - master
+      - main
+  repository_dispatch:
+jobs:
+  create-commit-pipile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create file with random number
+        run: |
+          pwd
+          echo $RANDOM >> random-number.txt
+          ls -a
+      - name: verify previous step contents
+        run: |
+          pwd
+          echo "Verification step"
+          ls -a
+      
